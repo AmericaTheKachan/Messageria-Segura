@@ -31,4 +31,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+#    senha = "senha".encode()
+#    mensagem = "mensagem para ser criptografada".encode()
+#    senha2 = "alalala".encode()
+
+
+#    mensagem_criptografada = Crypto.encrypt(senha, mensagem)
+#    print("Criptografada:", mensagem_criptografada)
+
+
+#    mensagem_decriptografada = Crypto.decrypt(senha, mensagem_criptografada)
+#    print("Decriptografada:", mensagem_decriptografada.decode())
+
 
