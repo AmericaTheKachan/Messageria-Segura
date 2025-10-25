@@ -1,4 +1,5 @@
 from services.auth import AuthService
+from models.crypto import Crypto
 
 def main():
     auth = AuthService()
@@ -30,3 +31,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
