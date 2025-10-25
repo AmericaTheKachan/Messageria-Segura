@@ -19,11 +19,11 @@ status: lido/não lido
 Perguntar a chave sempre quando for acessar uma mensagem.
 
 Opção mostrar novas mensagens e mostrar mensagens antigas.
-
+    
 Caso a chave não esteja certa, pergunte ao usuário se a chave está correta.
 
 Escolher qual algoritmo simétrico usar
 #
 ### Dicas de implementação
 pymongo (driver de conexão do python com o MongoDB Atlas)
-Criar uma classe para gerenciar a conexão, outra para mensamge, usuário, POJO, Auth, etc.
+Criar uma classe para gerenciar a conexão, outra para mensagem, usuário, POJO, Auth, etc.
