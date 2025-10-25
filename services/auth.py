@@ -19,6 +19,7 @@ class AuthService:
             return False, "Usuário não encontrado."
         
         if User.verifyPassword(user["password"], user["salt"], password):
-            return True, f"Bem-vindo de volta, {username}!"
+            print("UserAuth: ", user)
+            return True, user ,f"Bem-vindo de volta, {username}!"
         else:
             return False, "Senha incorreta."

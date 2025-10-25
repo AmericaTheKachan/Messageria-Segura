@@ -1,5 +1,7 @@
 from services.auth import AuthService
 from models.crypto import Crypto
+from services.session import userSession
+import os
 
 def main():
     auth = AuthService()
@@ -8,7 +10,7 @@ def main():
         print("\n=== BEM-VINDO A MESSAGERIA SEGURA ===")
         print("1 - Registrar")
         print("2 - Logar")
-        print("3 - Sair")
+        print("0 - Sair")
 
         opcao = input("Escolha: ")
 
@@ -19,11 +21,13 @@ def main():
         elif opcao == "2":
             username = input("Usuário: ")
             password = input("Senha: ")
-            ok, msg = auth.logar(username, password)
+            ok, user, msg = auth.logar(username, password)
             print(msg)
             if ok:
-                break
-        elif opcao == "3":
+                os.system('cls')
+                userSession(user)
+
+        elif opcao == "0":
             print("Saindo...")
             break
         else:
@@ -31,16 +35,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 #    senha = "senha".encode()
 #    mensagem = "mensagem para ser criptografada".encode()
 #    senha2 = "alalala".encode()
 
-
 #    mensagem_criptografada = Crypto.encrypt(senha, mensagem)
 #    print("Criptografada:", mensagem_criptografada)
 
-
 #    mensagem_decriptografada = Crypto.decrypt(senha, mensagem_criptografada)
 #    print("Decriptografada:", mensagem_decriptografada.decode())
-
-
