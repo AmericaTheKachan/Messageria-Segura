@@ -26,4 +26,4 @@ Escolher qual algoritmo simétrico usar
 #
 ### Dicas de implementação
 pymongo (driver de conexão do python com o MongoDB Atlas)
-Criar uma classe para gerenciar a conexão, outra para mensagem, usuário, POJO, Auth, etc
+Criar uma classe para gerenciar a conexão, outra para mensagem, usuário, POJO, Auth, etc.
