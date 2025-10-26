@@ -9,6 +9,7 @@ def userSession(user: User):
     while True:
         print(f"\n=== BEM-VINDO, {user["username"]} ===")
         print("1 - Enviar Mensagem")
+        print("2 - Ler novas mensagens")
         print("0 - Desconectar")
 
         opcao = input("Escolha: ")
@@ -16,6 +17,9 @@ def userSession(user: User):
         if opcao == "1":
             os.system('cls')
             print(msgHandler.sendMessage(user["username"]))
+        elif opcao == "2":
+            os.system('cls')
+            
         elif opcao == "0":
             os.system('cls')
             print("Desconectando...")

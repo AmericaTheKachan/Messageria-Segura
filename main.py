@@ -13,11 +13,13 @@ def main():
         print("0 - Sair")
 
         opcao = input("Escolha: ")
+        print("=======================")
 
         if opcao == "1":
             username = input("Usuário: ")
             password = input("Senha: ")
             print(auth.registrar(username, password))
+            os.system('cls')
         elif opcao == "2":
             username = input("Usuário: ")
             password = input("Senha: ")
@@ -28,9 +30,11 @@ def main():
                 userSession(user)
 
         elif opcao == "0":
+            os.system('cls')
             print("Saindo...")
             break
         else:
+            os.system('cls')
             print("Opção inválida.")
 
 if __name__ == "__main__":
