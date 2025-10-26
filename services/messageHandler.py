@@ -1,6 +1,5 @@
 from models.message import Message
 from db.connection import DBConnection
-from models.user import User
 from models.crypto import Crypto
 import datetime
 import os
@@ -30,3 +29,43 @@ class MessageHandler:
         new_message = Message(sender, recipient, "sent", mensagemCriptografada, dataAtual)
         self.messages.insert_one(new_message.toDict())
         return "Mensagem enviada com sucesso!"
+
+    # Puxar mensagens para quem é o destinatario e tem o status como "sent", mensagens são listadas como: (from User, dia e hora)
+    # usuário escolhe qual quer ler, depois de escolher pede a chave secreta e mostra a mensagem se estiver certo e coloca o status como "sent". 
+
+
+    def listMessages(self, user: str):
+        mensagens = self.messages.find({"to_user": user, "status": "sent"}).sort("sentDate", -1)
+
+        i = 0
+        dict = {}
+        for msg in mensagens:
+            i += 1
+            print(f"{i} - From: {msg['from_user']}, {msg['sentDate']}")
+            dict[i] = msg["_id"]
+        
+        opcao = int(input("Para volta digite 0\nSelecione a mensagem: "))
+        if opcao == 0:
+            os.system('cls')
+            return
+        else:
+            msgEscolhida = self.messages.find_one({"_id": dict[opcao]})
+        
+        chaveSecreta = input("Digite a chave MEGA secreta: ")
+
+        print(msgEscolhida["message"])
+        mensagemDecifrada = Crypto.decrypt(chaveSecreta, msgEscolhida['message'])
+        print(f"Mensagem: {mensagemDecifrada}")
+
+
+#    senha = "senha".encode()
+#    mensagem = "mensagem para ser criptografada".encode()
+#    senha2 = "alalala".encode()
+
+#    mensagem_criptografada = Crypto.encrypt(senha, mensagem)
+#    print("Criptografada:", mensagem_criptografada)
+
+#    mensagem_decriptografada = Crypto.decrypt(senha, mensagem_criptografada)
+#    print("Decriptografada:", mensagem_decriptografada.decode())
+
+            

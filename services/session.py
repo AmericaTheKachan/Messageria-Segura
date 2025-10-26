@@ -19,7 +19,7 @@ def userSession(user: User):
             print(msgHandler.sendMessage(user["username"]))
         elif opcao == "2":
             os.system('cls')
-            
+            msgHandler.listMessages(user["username"])
         elif opcao == "0":
             os.system('cls')
             print("Desconectando...")

@@ -18,8 +18,8 @@ def main():
         if opcao == "1":
             username = input("Usuário: ")
             password = input("Senha: ")
-            print(auth.registrar(username, password))
             os.system('cls')
+            print(auth.registrar(username, password))
         elif opcao == "2":
             username = input("Usuário: ")
             password = input("Senha: ")
@@ -37,8 +37,7 @@ def main():
             os.system('cls')
             print("Opção inválida.")
 
-if __name__ == "__main__":
-    main()
+main()
 
 
 #    senha = "senha".encode()
