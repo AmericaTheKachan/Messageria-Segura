@@ -1,5 +1,5 @@
-from models.user import User
 from services.messageHandler import MessageHandler
+from models.user import User
 import os
 
 def userSession(user: User):
@@ -19,10 +19,12 @@ def userSession(user: User):
             print(msgHandler.sendMessage(user["username"]))
         elif opcao == "2":
             os.system('cls')
-            
+            msgHandler.listMessages(user["username"])
+            os.system('cls')
         elif opcao == "0":
             os.system('cls')
-            print("Desconectando...")
+            print("\033[33mAviso: Desconectando...\033[m")
             break
         else:
-            print("Opção inválida.")
+            os.system('cls')
+            print("\033[31mErro: Opção inválida.\033[m")
