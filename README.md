@@ -8,22 +8,10 @@ Ler minhas novas mensagens ou obter as novas mensagens (não lidas em ordem desc
 (from Pedro, dia e hora). Em seguida o usuário escolhe qual mensagem quer ler e o sistema solicita a chave criptográfica
 para decifrar a mensagem.
 #
-### Banco: MongoDB
-Gravar no banco como: 
+### Como rodar
 
-from (nome) to (nome)
+Copie a string de conexão do Driver Atlas no mongodb
 
-status: lido/não lido
-#
-### Outras definições
-Perguntar a chave sempre quando for acessar uma mensagem.
+Cole a string no arquivo .env no campo ATLAS_URI
 
-Opção mostrar novas mensagens e mostrar mensagens antigas.
-    
-Caso a chave não esteja certa, pergunte ao usuário se a chave está correta.
-
-Escolher qual algoritmo simétrico usar
-#
-### Dicas de implementação
-pymongo (driver de conexão do python com o MongoDB Atlas)
-Criar uma classe para gerenciar a conexão, outra para mensagem, usuário, POJO, Auth, etc.
+Execute o arquivo main.py
