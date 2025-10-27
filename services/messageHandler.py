@@ -51,21 +51,9 @@ class MessageHandler:
         else:
             msgEscolhida = self.messages.find_one({"_id": dict[opcao]})
         
-        chaveSecreta = input("Digite a chave MEGA secreta: ")
+        chaveSecreta = input("Digite a chave MEGA secreta: ").encode()
 
-        print(msgEscolhida["message"])
         mensagemDecifrada = Crypto.decrypt(chaveSecreta, msgEscolhida['message'])
-        print(f"Mensagem: {mensagemDecifrada}")
+        print(f"Mensagem: {mensagemDecifrada.decode()}")
 
-
-#    senha = "senha".encode()
-#    mensagem = "mensagem para ser criptografada".encode()
-#    senha2 = "alalala".encode()
-
-#    mensagem_criptografada = Crypto.encrypt(senha, mensagem)
-#    print("Criptografada:", mensagem_criptografada)
-
-#    mensagem_decriptografada = Crypto.decrypt(senha, mensagem_criptografada)
-#    print("Decriptografada:", mensagem_decriptografada.decode())
-
-            
+        self.messages.update_one({"_id": msgEscolhida["_id"]},{"$set": {"status": "seen"}})
