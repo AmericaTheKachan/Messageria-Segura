@@ -37,7 +37,6 @@ class Crypto:
         try:
             msgDecrypt = fernet.decrypt(token)
         except Exception:
-            
             msgDecrypt = base64.urlsafe_b64encode(token)
 
         return msgDecrypt
